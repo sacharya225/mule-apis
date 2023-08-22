@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<tls:context name="TLS_Context" doc:name="TLS Context" doc:id="3ba610c2-af05-43dd-b921-f9e1df89623d" >
+		<tls:key-store type="pkcs12" keyPassword="Welcome@1" password="Welcome@1" path="demo-dev.p12"/>
+	</tls:context>
+	<http:listener-config name="HTTPS_Listener" doc:name="HTTP Listener config" doc:id="869e5386-f14d-4ac2-80f7-fef0f0a45e2e" >
+		<http:listener-connection protocol="HTTPS" host="0.0.0.0" port="8089" tlsContext="TLS_Context" />
+	</http:listener-config>
+</mule>
